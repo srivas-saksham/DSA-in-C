@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "03_array_operations": "cpp"
+        "03_array_operations": "cpp",
+        "19_count_ll": "cpp"
     }
 }

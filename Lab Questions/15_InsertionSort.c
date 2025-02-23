@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void InsertionSort(int arr[], int n){
+void insertionSort(int arr[], int n){
     int i, key, j;
     for (i = 1; i < n; i++) {
         key = arr[i];
@@ -48,7 +48,7 @@ int main() {
     printf("Original Array: ");
     printArray(arr, n);
     
-    InsertionSort(arr, n);
+    insertionSort(arr, n);
 
     printf("Sorted Array: ");
     printArray(arr, n);
