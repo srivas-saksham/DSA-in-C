@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "03_array_operations": "cpp",
-        "19_count_ll": "cpp"
+        "19_count_ll": "cpp",
+        "26_headerll_operations": "cpp",
+        "stdlib.h": "c",
+        "stdio.h": "c"
     }
 }
