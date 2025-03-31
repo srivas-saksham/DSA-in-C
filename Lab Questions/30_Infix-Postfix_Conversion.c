@@ -1,4 +1,4 @@
-//(Optional) to convert a Infix Expression into a Prostfix Expression using Stack
+//(Optional) to convert a Infix Expression into a Postfix Expression using Stack
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
