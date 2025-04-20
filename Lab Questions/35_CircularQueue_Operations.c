@@ -75,18 +75,20 @@ int main(){
         scanf("%d", &choice);
 
         switch(choice){
-            case 1:
+            case 1: {
                 int val;
                 printf("Enter Value: ");
                 scanf("%d", &val);
                 enqueue(queue, val, size);
                 break;
+            }
             
-            case 2:
+            case 2: {
                 int delVal = dequeue(queue, size);
                 if(delVal != -1)
                     printf("Deleted Element: %d", delVal);
                 break;
+            }
             
             case 3:
                 displayQ(queue, size);

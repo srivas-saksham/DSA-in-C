@@ -1,24 +1,17 @@
-/*WAP to implement SIngly Linked List the stores data as integer and perform followin goperations:
-Delete a node in the beginiing and end of the list.
-Delete the node that comes after a given node in the linked list.
-Search and element in the linked list. If found, delete it.*/
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node{
+struct Node {
     int data;
-    struct Node *next;
+    struct Node* next;
 };
 
-//Function to insert a node at the end of the list
-void insertNode(struct Node** head, int value){
+// Insert node at the end
+void insertNode(struct Node** head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = NULL;
 
-    //If the list is empty, make the new node the head
     if (*head == NULL) {
         *head = newNode;
         return;
@@ -32,106 +25,148 @@ void insertNode(struct Node** head, int value){
     temp->next = newNode;
 }
 
-//Function to display all elements in the list
-void printList(struct Node* head){
+// Display the list
+void printList(struct Node* head) {
     if (head == NULL) {
-        printf("List is empty!\n");
+        printf("List is empty!\n\n");
         return;
     }
 
-    struct Node* temp = head;
     printf("Linked List Elements: ");
-    while (temp != NULL) {
-        printf("%d ", temp->data);
+    while (head != NULL) {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+    printf("\n\n");
+}
+
+// Delete first node
+struct Node* deleteFirst(struct Node* head) {
+    if (head == NULL) {
+        printf("List is already empty.\n");
+        return NULL;
+    }
+
+    struct Node* temp = head;
+    head = head->next;
+    free(temp);
+
+    return head;
+}
+
+// Delete last node
+struct Node* deleteLast(struct Node* head) {
+    if (head == NULL) {
+        printf("List is already empty.\n");
+        return NULL;
+    }
+
+    if (head->next == NULL) {
+        free(head);
+        return NULL;
+    }
+
+    struct Node* temp = head;
+    while (temp->next->next != NULL) {
         temp = temp->next;
     }
-    printf("\n");
-}
 
-//Function to delete the first node
-struct Node* deleteFirst(struct Node* head){
-    struct Node* ptr = head;
-    head = ptr->next;
-    free(ptr);
+    free(temp->next);
+    temp->next = NULL;
 
     return head;
 }
 
-//Function to delete the last node
-struct Node* deleteLast(struct Node* head){
-    struct Node* ptr = head;
-    while(ptr->next->next != NULL){
-        ptr = ptr->next;
+// Delete node after a given value
+struct Node* deleteAfter(struct Node* head, int val) {
+    struct Node* temp = head;
+
+    while (temp != NULL && temp->data != val) {
+        temp = temp->next;
     }
-    free(ptr->next);
-    ptr->next = NULL;
+
+    if (temp == NULL || temp->next == NULL) {
+        printf("No node found after value %d.\n", val);
+        return head;
+    }
+
+    struct Node* toDelete = temp->next;
+    temp->next = toDelete->next;
+    free(toDelete);
 
     return head;
 }
 
-//Function to delete node after a given node
-struct Node* deleteAfter(struct Node* head, int val){
-    struct Node* ptr = head;
-    while(ptr->data != val){
-        ptr = ptr->next;
+// Delete a node with specific value (search and delete)
+struct Node* deleteValue(struct Node* head, int val) {
+    if (head == NULL) {
+        printf("List is empty.\n");
+        return NULL;
     }
-    struct Node* temp = ptr->next;
-    ptr->next = temp->next;
-    free(temp);
+
+    // If value is in the head node
+    if (head->data == val) {
+        struct Node* temp = head;
+        head = head->next;
+        free(temp);
+        return head;
+    }
+
+    struct Node* temp = head;
+    while (temp->next != NULL && temp->next->data != val) {
+        temp = temp->next;
+    }
+
+    if (temp->next == NULL) {
+        printf("Element %d not found in the list.\n", val);
+        return head;
+    }
+
+    struct Node* toDelete = temp->next;
+    temp->next = toDelete->next;
+    free(toDelete);
 
     return head;
 }
 
-//Function to delete a given node
-struct Node* deleteValue(struct Node* head, int val){
-    struct Node* ptr = head;
-    while(ptr->next->data != val){
-        ptr = ptr->next;
-    }
-    if(ptr->next == NULL){
-        printf("Element Not Found!");
-    }
-    struct Node* temp = ptr->next;
-    ptr->next = temp->next;
-    free(temp);
-
-    return head;
-}
-
-void main(){
+// Main function
+int main() {
     struct Node* start = NULL;
     int n, value;
 
     printf("Enter the number of elements to insert: ");
     scanf("%d", &n);
 
-    printf("Enter %d elements: \n", n);
+    printf("Enter %d elements:\n", n);
     for (int i = 0; i < n; i++) {
-        printf("Enter Element %d: ", i+1);
+        printf("Enter Element %d: ", i + 1);
         scanf("%d", &value);
         insertNode(&start, value);
     }
 
-    // Deleting First Node
-    printf("\nDeleting First Node: \n");
+    printList(start);
+
+    // Delete First Node
+    printf("Deleting First Node...\n");
     start = deleteFirst(start);
     printList(start);
 
-    // Deleting Last Node
-    printf("\nDeleting Last Node: \n");
+    // Delete Last Node
+    printf("Deleting Last Node...\n");
     start = deleteLast(start);
     printList(start);
 
-    
-    // Deleting the Node After Value
-    printf("\nEnter the Value whose next Node is to be Deleted: ");
+    // Delete After Value
+    printf("Enter Value whose next node is to be deleted: ");
     scanf("%d", &value);
     start = deleteAfter(start, value);
     printList(start);
 
-    // Deleting the Node with Value n
-    printf("\nEnter the Element to Delete: ");
+    // Search and Delete a Value
+    printf("Enter the Element to Delete (Search and Delete): ");
     scanf("%d", &value);
     start = deleteValue(start, value);
     printList(start);
+
+    return 0;
 }

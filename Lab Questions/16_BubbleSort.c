@@ -1,77 +1,23 @@
+// WAP to implement Bubble Sort using malloc
 #include <stdio.h>
 #include <stdlib.h>
 
-// Function to merge two halves
-void merge(int arr[], int left, int mid, int right) {
-    int n1 = mid - left + 1;  // Size of the left subarray
-    int n2 = right - mid;     // Size of the right subarray
-
-    // Create temporary arrays for left and right subarrays
-    int *L = (int *)malloc(n1 * sizeof(int));
-    int *R = (int *)malloc(n2 * sizeof(int));
-
-    // Check if memory allocation was successful
-    if (L == NULL || R == NULL) {
-        printf("Memory allocation failed!\n");
-        exit(1);
-    }
-
-    // Copy data to temporary arrays L[] and R[]
-    for (int i = 0; i < n1; i++) {
-        L[i] = arr[left + i];
-    }
-    for (int j = 0; j < n2; j++) {
-        R[j] = arr[mid + 1 + j];
-    }
-
-    int i = 0, j = 0, k = left;
-    
-    // Merge the temp arrays back into the original array
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        } else {
-            arr[k] = R[j];
-            j++;
+// Function to perform Bubble Sort
+void bubbleSort(int arr[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
         }
-        k++;
-    }
-
-    // Copy remaining elements of L[] (if any)
-    while (i < n1) {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
-
-    // Copy remaining elements of R[] (if any)
-    while (j < n2) {
-        arr[k] = R[j];
-        j++;
-        k++;
-    }
-
-    // Free the dynamically allocated memory for temporary arrays
-    free(L);
-    free(R);
-}
-
-// Function to implement merge sort
-void mergeSort(int arr[], int left, int right) {
-    if (left < right) {
-        int mid = left + (right - left) / 2;
-
-        // Recursively sort the two halves
-        mergeSort(arr, left, mid);
-        mergeSort(arr, mid + 1, right);
-
-        // Merge the sorted halves
-        merge(arr, left, mid, right);
     }
 }
 
-// Function to print the array
+// Function to print array
 void printArray(int arr[], int n) {
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
@@ -82,19 +28,19 @@ void printArray(int arr[], int n) {
 int main() {
     int n;
 
-    // Prompt the user to enter the size of the array
-    printf("Enter the number of elements: ");
+    // Input size of array
+    printf("Enter number of elements: ");
     scanf("%d", &n);
 
-    // Dynamically allocate memory for the array
+    // Dynamically allocate memory
     int *arr = (int *)malloc(n * sizeof(int));
 
-    if (arr == NULL) {  // Check if memory allocation was successful
+    if (arr == NULL) {
         printf("Memory allocation failed!\n");
         return 1;
     }
 
-    // Prompt the user to input the elements of the array
+    // Input array elements
     printf("Enter %d elements: ", n);
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
@@ -103,13 +49,13 @@ int main() {
     printf("Original Array: ");
     printArray(arr, n);
 
-    // Call mergeSort function to sort the array
-    mergeSort(arr, 0, n - 1);
+    // Bubble Sort
+    bubbleSort(arr, n);
 
     printf("Sorted Array: ");
     printArray(arr, n);
 
-    // Free the dynamically allocated memory
+    // Free memory
     free(arr);
 
     return 0;

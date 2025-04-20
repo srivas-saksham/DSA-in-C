@@ -1,0 +1,120 @@
+14. Write a Program to implement Selection Sort.
+15. Write a Program to implement Insertion Sort.
+16. Write a Program to implement Bubble Sort.
+17. Write a Program to implement Merge Sort.
+
+18. WAP to implement Singly Linked List that stores data as integer and perform following operations:
+
+Traverse the list to display each element
+
+Search for a specific element in the list
+
+19. WAP to implement Singly Linked List that stores data as integer and perform following operations:
+
+Count the number of nodes in the list
+
+Find minimum and maximum value in the linked list
+
+20. WAP to implement Singly Linked List that stores data as integer and perform following operations:
+
+Insert a new node in the beginning and end of the list
+
+Insert a new node after a given node in the list
+
+Insert a new node before a given node in the list
+
+21. WAP to implement two Singly Linked List that stores data as integer and perform following operation:
+
+Merge the two lists to create a new sorted list
+
+22. WAP to implement a Singly Linked List that stores data as integer and perform following operation:
+
+Create a new list that is reverse of the first linked list
+
+23. WAP to implement Singly Linked List that stores data as integer and perform following operations:
+
+Delete a node in the beginning and end of the list
+
+Delete the node that comes after a given node in the linked list
+
+Search an element in the linked list. If found, delete it
+
+24. WAP to implement Doubly Linked List that stores data as integer and perform following operations:
+
+Traverse the list to display each element
+
+Search for a specific element in the list
+
+25. WAP to implement Doubly Linked List that stores data as integer and perform following operations:
+
+Insert a new node in the beginning, end and middle of the list
+
+Delete a node in the beginning, end and middle of the list
+
+26. WAP to implement Header Linked List with operations:
+
+Insertion (Beginning, Between, End)
+
+Deletion (Beginning, Between, End)
+
+Traverse
+Date: 10-Mar-25
+
+27. WAP to implement Circular Linked List with operations:
+
+Insertion (Beginning, Between, End)
+
+Deletion (Beginning, Between, End)
+
+Traverse
+
+Linear Search
+Date: 10-Mar-25
+
+28. WAP to perform polynomial addition using linked lists
+Date: 10-Mar-25
+
+Stacks and Queues
+
+29. Write a Program to Perform Pop, Push, Traverse operations on the stack using array (Static Stack)
+Date: 10-Mar-25
+
+30. (Optional) WAP to Convert Infix Expression to Postfix form using Stack.
+31. (Optional) WAP to Convert Infix Expression to Prefix form using Stack.
+32. WAP to evaluate Postfix expression using Stack.
+33. WAP to reverse the String using Stack.
+
+34. WAP to perform different operations with Queue such as Insert, Delete, Display of elements using array. (Linear Queue or Static Queue)
+Date: 07-Apr-25
+
+35. WAP to perform different operations with Queue such as Insert, Delete, Display of elements using Circular Queue.
+Date: 07-Apr-25
+
+36. Write a Program to Perform Pop, Push, Traverse operations on the stack using Pointer (Dynamic Stack).
+Date: 07-Apr-25
+
+37. WAP to perform different operations such as Insert, Delete, Display elements using Dynamic Queue.
+Date: 07-Apr-25
+
+38. WAP to implement priority queue with three priority values (1: Lowest, 2, 3: Highest)
+Date: 07-Apr-25
+
+39. WAP to find factorial of a number using recursion
+40. WAP to generate Fibonacci Series of n-terms
+41. Write a program to calculate the GCD of two numbers using recursive functions
+Date: 11-Apr-25
+
+Binary Trees, Binary Search Trees
+
+42. WAP to create a Binary tree and traverse the tree in Inorder, Preorder and Postorder manner using recursive functions
+43. WAP to create a Binary Search Tree (BST) and traverse the tree in Inorder, Preorder and Postorder manner using recursive functions
+Date: 11-Apr-25
+
+44. WAP to implement following recursive operations on a Binary Search Tree (BST):
+a. Find an element
+b. Insert an element
+c. Delete an element
+d. Count the number
+e. Find maximum element
+f. Find minimum element
+g. Find height of the tree
